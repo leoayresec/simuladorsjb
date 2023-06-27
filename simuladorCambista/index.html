@@ -84,8 +84,10 @@
 
   <script>
     function calcularPagamento() {
-      var valorLiquido = parseFloat(document.getElementById('valorLiquido').value);
-      var vale = parseFloat(document.getElementById('vale').value);
+      var valorLiquidoInput = document.getElementById('valorLiquido').value;
+      var valorLiquido = valorLiquidoInput ? parseFloat(valorLiquidoInput.replace(',', '.')) : 0;
+      var valeInput = document.getElementById('vale').value;
+      var vale = valeInput ? parseFloat(valeInput.replace(',', '.')) : 0;
       var total = valorLiquido + vale;
   
       var resultado = document.getElementById('resultado');
