@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Simulador de Gerente</title>
+  <title>Calculadora de Pagamento</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -65,18 +65,55 @@
     <img src="https://saojorgebets.com/img/logo.png" alt="Logo da empresa">
   </div>
 
-  <h1>Simuladores</h1>
+  <h1>Calculadora de Pagamento</h1>
   
-  <button onclick="redirecionarGerente()">Simulador Gerente</button>
-  <button onclick="redirecionarCambista()">Simulador Cambista</button>
+  <form id="paymentForm">
+    <label for="gerente">Nome do Gerente:</label>
+    <input type="text" id="gerente" required>
+
+    <label for="valorLiquido">Valor Líquido:</label>
+    <input type="number" id="valorLiquido" step="0.01" value="" required>
+
+    <label for="adiantamento">Adiantamento:</label>
+    <input type="number" id="adiantamento" step="0.01" value="" required>
+
+    <label for="despesa">Despesa:</label>
+    <input type="number" id="despesa" step="0.01" value="" required>
+
+    <button type="button" onclick="calcularPagamento()">Calcular</button>
+    <button type="button" onclick="limparCampos()">Limpar</button>
+    <button type="button" onclick="voltarPaginaPrincipal()">Voltar à Página Principal</button>
+  </form>
+
+  <h2>Resultado:</h2>
+  <p id="resultado"></p>
 
   <script>
-    function redirecionarGerente() {
-      window.location.href = "simuladorGerente/";
-    }
+    function calcularPagamento() {
+      var valorLiquidoInput = document.getElementById('valorLiquido').value;
+      var valorLiquido = valorLiquidoInput ? parseFloat(valorLiquidoInput.replace(',', '.')) : 0;
+      var adiantamentoInput = document.getElementById('adiantamento').value;
+      var adiantamento = adiantamentoInput ? parseFloat(adiantamentoInput.replace(',', '.')) : 0;
+      var despesaInput = document.getElementById('despesa').value;
+      var despesa = despesaInput ? parseFloat(despesaInput.replace(',', '.')) : 0;
 
-    function redirecionarCambista() {
-      window.location.href = "simuladorCambista/";
+      var comissao = valorLiquido >= 0 ? valorLiquido * 0.2 : 0;
+      var total = valorLiquido + adiantamento - comissao - despesa;
+
+      var resultado = document.getElementById('resultado');
+      resultado.innerHTML = "Comissão: R$" + comissao.toFixed(2) + "<br>";
+      resultado.innerHTML += "Total: R$" +  total.toFixed(2) + "<br>"
+
+    }
+  function limparCampos() {
+    document.getElementById('gerente').value = '';
+    document.getElementById('valorLiquido').value = '';
+    document.getElementById('adiantamento').value = '';
+    document.getElementById('despesa').value = '';
+    document.getElementById('resultado').innerHTML = '';
+  }
+  function voltarPaginaPrincipal() {
+      window.location.href = "../index.html";
     }
   </script>
 </body>
