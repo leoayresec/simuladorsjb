@@ -6,7 +6,7 @@
   <style>
     body {
       background-color: black;
-      color: #00FF00;
+      color: yellow; /* Letras em amarelo */
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
@@ -14,7 +14,7 @@
     }
 
     h1 {
-      color: #00FF00;
+      color: yellow; /* Letras em amarelo */
       text-align: center;
     }
 
@@ -27,19 +27,20 @@
     input[type="number"] {
       width: 100%;
       padding: 5px;
-      border: 1px solid #00FF00;
+      border: 1px solid yellow; /* Borda em amarelo */
       border-radius: 3px;
       box-sizing: border-box;
     }
 
     button {
       width: 100%;
-      background-color: #00FF00;
+      background-color: yellow; /* Fundo em amarelo */
       color: black;
       padding: 10px 20px;
       border: none;
       border-radius: 3px;
       cursor: pointer;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -49,9 +50,17 @@
     #resultado {
       margin-top: 20px;
     }
+
+    .logo {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+  <div class="logo">
+    <img src="https://saojorgebets.com/img/logo.png" alt="Logo da empresa">
+  </div>
+
   <h1>Calculadora de Pagamento</h1>
   
   <form id="paymentForm">
@@ -68,6 +77,8 @@
     <input type="number" id="despesa" step="0.01" required>
 
     <button type="button" onclick="calcularPagamento()">Calcular</button>
+    <button type="button" onclick="limparCampos()">Limpar</button>
+
   </form>
 
   <h2>Resultado:</h2>
@@ -84,8 +95,16 @@
 
       var resultado = document.getElementById('resultado');
       resultado.innerHTML = "Comissão: R$" + comissao.toFixed(2) + "<br>";
-      resultado.innerHTML += "Total: R$" + total.toFixed(2);
+      resultado.innerHTML += "Total: R$"
+
     }
+  function limparCampos() {
+    document.getElementById('gerente').value = '';
+    document.getElementById('valorLiquido').value = '';
+    document.getElementById('adiantamento').value = '';
+    document.getElementById('despesa').value = '';
+    document.getElementById('resultado').innerHTML = '';
+  } 
   </script>
 </body>
 </html>
