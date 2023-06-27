@@ -90,15 +90,17 @@
   <script>
     function calcularPagamento() {
       var valorLiquido = parseFloat(document.getElementById('valorLiquido').value);
-      var adiantamento = parseFloat(document.getElementById('adiantamento').value);
-      var despesa = parseFloat(document.getElementById('despesa').value);
-  
+      var adiantamentoInput = document.getElementById('adiantamento').value;
+      var adiantamento = adiantamentoInput ? parseFloat(adiantamentoInput.replace(',', '.')) : 0;
+      var despesaInput = document.getElementById('despesa').value;
+      var despesa = despesaInput ? parseFloat(despesaInput.replace(',', '.')) : 0;
+
       var comissao = valorLiquido >= 0 ? valorLiquido * 0.2 : 0;
       var total = valorLiquido + adiantamento - comissao - despesa;
-  
+
       var resultado = document.getElementById('resultado');
       resultado.innerHTML = "Comissão: R$" + comissao.toFixed(2) + "<br>";
-      resultado.innerHTML += "Total: R$" + total.toFixed(2);
+      resultado.innerHTML += "Total: R$" +  total.toFixed(2) + "<br>"
 
     }
   function limparCampos() {
