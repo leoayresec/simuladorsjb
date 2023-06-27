@@ -82,6 +82,7 @@
 
     <button type="button" onclick="calcularPagamento()">Calcular</button>
     <button type="button" onclick="limparCampos()">Limpar</button>
+    <button type="button" onclick="voltarPaginaPrincipal()">Voltar à Página Principal</button>
   </form>
 
   <h2>Resultado:</h2>
@@ -111,6 +112,9 @@
     document.getElementById('despesa').value = '';
     document.getElementById('resultado').innerHTML = '';
   }
+  function voltarPaginaPrincipal() {
+      window.location.href = "../index.html";
+    }
   </script>
 </body>
 </html>
