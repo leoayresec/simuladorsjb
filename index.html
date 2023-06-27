@@ -54,6 +54,10 @@
     .logo {
       text-align: center;
     }
+   .logo img {
+      max-width: 150px; /* Defina a largura máxima desejada */
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -68,17 +72,16 @@
     <input type="text" id="gerente" required>
 
     <label for="valorLiquido">Valor Líquido:</label>
-    <input type="number" id="valorLiquido" step="0.01" required>
+    <input type="number" id="valorLiquido" step="0.01" value="0.00" required>
 
     <label for="adiantamento">Adiantamento:</label>
-    <input type="number" id="adiantamento" step="0.01" required>
+    <input type="number" id="adiantamento" step="0.01" value="0.00" required>
 
     <label for="despesa">Despesa:</label>
-    <input type="number" id="despesa" step="0.01" required>
+    <input type="number" id="despesa" step="0.01" value="0.00" required>
 
     <button type="button" onclick="calcularPagamento()">Calcular</button>
     <button type="button" onclick="limparCampos()">Limpar</button>
-
   </form>
 
   <h2>Resultado:</h2>
@@ -95,16 +98,16 @@
 
       var resultado = document.getElementById('resultado');
       resultado.innerHTML = "Comissão: R$" + comissao.toFixed(2) + "<br>";
-      resultado.innerHTML += "Total: R$"
+      resultado.innerHTML += "Total: R$" +  total.toFixed(2) + "<br>"
 
     }
   function limparCampos() {
     document.getElementById('gerente').value = '';
-    document.getElementById('valorLiquido').value = '';
-    document.getElementById('adiantamento').value = '';
-    document.getElementById('despesa').value = '';
+    document.getElementById('valorLiquido').value = '0.00';
+    document.getElementById('adiantamento').value = '0.00';
+    document.getElementById('despesa').value = '0.00';
     document.getElementById('resultado').innerHTML = '';
-  } 
+  }
   </script>
 </body>
 </html>
