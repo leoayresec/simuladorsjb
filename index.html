@@ -1,13 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirecionamento</title>
+  <title>Calculadora de Pagamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: black;
+      color: yellow; /* Letras em amarelo */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: yellow; /* Letras em amarelo */
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid yellow; /* Borda em amarelo */
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      background-color: yellow; /* Fundo em amarelo */
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #008000;
+    }
+
+    #resultado {
+      margin-top: 20px;
+    }
+
+    .logo {
+      text-align: center;
+    }
+   .logo img {
+      max-width: 150px; /* Defina a largura máxima desejada */
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Redirecionamento</h1>
-  
-  <button onclick="redirecionarGerente()">Simulador Gerente</button>
-  <button onclick="redirecionarCambista()">Simulador Cambista</button>
+  <div class="logo">
+    <img src="https://saojorgebets.com/img/logo.png" alt="Logo da empresa">
+  </div>
+
+  <button type="button" onclick="redirecionarGerente()">Simulador Gerente</button>
+  <button type="button" onclick="redirecionarCambista()">Simulador Cambista</button>
 
   <script>
     function redirecionarGerente() {
