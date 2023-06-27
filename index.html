@@ -89,7 +89,8 @@
 
   <script>
     function calcularPagamento() {
-      var valorLiquido = parseFloat(document.getElementById('valorLiquido').value);
+      var valorLiquidoInput = document.getElementById('valorLiquido').value;
+      var valorLiquido = valorLiquidoInput ? parseFloat(valorLiquidoInput.replace(',', '.')) : 0;
       var adiantamentoInput = document.getElementById('adiantamento').value;
       var adiantamento = adiantamentoInput ? parseFloat(adiantamentoInput.replace(',', '.')) : 0;
       var despesaInput = document.getElementById('despesa').value;
