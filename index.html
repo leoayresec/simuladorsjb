@@ -72,13 +72,13 @@
     <input type="text" id="gerente" required>
 
     <label for="valorLiquido">Valor Líquido:</label>
-    <input type="number" id="valorLiquido" step="0.01" value="0.00" required>
+    <input type="number" id="valorLiquido" step="0.01" value="" required>
 
     <label for="adiantamento">Adiantamento:</label>
-    <input type="number" id="adiantamento" step="0.01" value="0.00" required>
+    <input type="number" id="adiantamento" step="0.01" value="" required>
 
     <label for="despesa">Despesa:</label>
-    <input type="number" id="despesa" step="0.01" value="0.00" required>
+    <input type="number" id="despesa" step="0.01" value="" required>
 
     <button type="button" onclick="calcularPagamento()">Calcular</button>
     <button type="button" onclick="limparCampos()">Limpar</button>
@@ -103,9 +103,9 @@
     }
   function limparCampos() {
     document.getElementById('gerente').value = '';
-    document.getElementById('valorLiquido').value = '0.00';
-    document.getElementById('adiantamento').value = '0.00';
-    document.getElementById('despesa').value = '0.00';
+    document.getElementById('valorLiquido').value = '';
+    document.getElementById('adiantamento').value = '';
+    document.getElementById('despesa').value = '';
     document.getElementById('resultado').innerHTML = '';
   }
   </script>
